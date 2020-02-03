@@ -1,0 +1,22 @@
+{%extends 'base.html' %} {% block content %}
+<form method="GET" class="formulario">
+  <label for="regex">
+    Búsqueda <input type="text" name="regex" id="regex"
+  /></label>
+  <label for="coleccion" class="coleccion"
+    >Colección
+    <select name="coleccion" style="border-radius: 5px;" id="coleccion">
+      {%for coleccion in lista_colecciones%}
+      <option>{{coleccion}}</option>
+      {%endfor%}
+    </select>
+  </label>
+  <input type="submit" value="buscar" />
+</form>
+{%if resultado%}
+<h2 style="width: 100%;">Resultados</h2>
+{%for value in resultado%}
+<p style="width: 100%;">{{value}}</p>
+{%if value.img %}
+<img src="{{value.img}}" alt="imagen" />
+{%endif%} {%endfor%} {%endif%} {%endblock%}

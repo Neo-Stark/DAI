@@ -1,0 +1,7 @@
+reactTutorial/
+teoria/
+.vscode/
+practica4/datos_db/
+practica6/django-allauth/
+practica6/django-user-registration-bs4/
+**/__pycache__/

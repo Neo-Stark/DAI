@@ -1,0 +1,25 @@
+{%extends 'base.html' %}
+  {%block main %}
+    <form action="procesar.php" method="GET" class="formulario">
+      <label for="autor"> Autor <input type="text" name="nombre" id="autor"></label>
+      <label for="titulo"> Título <input type="text" name="titulo" id="titulo"></label>
+      <label> ISBN <input type="text" name="ISBN"></label>
+      <label for="precio">Precio entre <input type="text" name="menor" id="precio"></label>
+        <label>y <input type="text" name="mayor"></label>
+      <label for="genero" class="genero">Género
+        <select name="genero" class="genero" id="genero">
+          <option>Acción</option>
+          <option>Aventuras</option>
+          <option>Policiacas</option>
+          <option>Ciencia ficción</option>
+          <option>Humor</option>
+        </select>
+      </label>
+
+      <em>Encuadernación</em> <label class="encuadernacion"><input type="radio" name="encuadernacion" value="dura"> Tapa dura</label>
+      <label class="encuadernacion"><input type="radio" name="encuadernacion" value="blanda"> Tapa blanda</label>
+      <label class="encuadernacion"><input type="radio" name="encuadernacion" value="cualquiera" checked> Cualquiera</label>
+      <input type="submit" value="buscar">
+
+    </form>
+{%endblock%}

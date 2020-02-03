@@ -1,0 +1,413 @@
+// COLORES
+/* Color Theme Swatches in RGBA */
+
+@Centre-1: rgba(147, 170, 191, 1);
+@Centre-2: rgba(190, 214, 216, 1);
+@Centre-3: rgba(242, 199, 121, 1);
+@Centre-4: rgba(63, 24, 1, 1);
+@Centre-5: rgba(165, 81, 62, 1);
+
+/* Color Theme Swatches in Hex */
+@ravenclaw-1: #DFD3C3;
+@ravenclaw-2: #392A24;
+@ravenclaw-3: #093047;
+@ravenclaw-4: #133F58;
+@ravenclaw-5: #ADA89E;
+
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+body {
+  display        : flex;
+  flex-flow      : row wrap;
+  align-items    : flex-start;
+  justify-content: space-between;
+  align-content  : space-around;
+  font-family    : 'Karla', 'Rubik', sans-serif;
+
+  em {
+    font-weight: bold;
+    font-size  : 110%;
+  }
+}
+
+main {
+  flex       : 3;
+  background : rgba(192, 192, 192, 0.5);
+  border     : solid @ravenclaw-3;
+  margin     : 25px;
+  margin-left: 10%;
+  display    : flex;
+  flex-wrap  : wrap;
+
+  h1 {
+    margin-left: 50px;
+    color      : @ravenclaw-3;
+  }
+
+  table {
+    width          : 800px;
+    border-collapse: collapse;
+    box-shadow     : 0 0 20px rgba(0, 0, 0, 0.2);
+    background     : linear-gradient(45deg, #49a09d, #5f2c82);
+    margin         : 15px;
+    border-radius  : 5px;
+  }
+
+  th,
+  td {
+    padding         : 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color           : #fff;
+  }
+
+  th {
+    background-color: #55608f;
+    text-align      : left;
+  }
+
+  input[type=submit] {
+    border       : 1px solid @ravenclaw-4;
+    color        : white;
+    background   : @ravenclaw-3;
+    padding      : 10px 20px;
+    border-radius: 3px;
+    margin       : 5px;
+  }
+
+  input[type=submit]:hover {
+    background: @ravenclaw-4;
+  }
+
+  button {
+    border       : 1px solid @ravenclaw-4;
+    color        : white;
+    background   : @ravenclaw-3;
+    padding      : 10px 20px;
+    border-radius: 3px;
+    margin       : 5px;
+  }
+
+  button:hover {
+    background: @ravenclaw-4;
+  }
+
+  img {
+    margin       : 10px;
+    border-radius: 3px;
+    border       : 1px solid @ravenclaw-4;
+    box-shadow   : 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  section.inicio {
+    flex-basis   : 100%;
+    margin       : 5px;
+    display      : flex;
+    flex-flow    : wrap;
+    align-content: space-between;
+    align-items  : flex-end;
+
+    h1 {
+      color     : @ravenclaw-3;
+      text-align: center;
+      flex      : 100%;
+    }
+
+    p {
+      flex      : 1 1 60%;
+      margin    : 5px;
+      text-align: justify;
+    }
+
+    img {
+      width     : 150px;
+      margin    : 5px;
+      border    : 1px solid @ravenclaw-2;
+      align-self: flex-start;
+    }
+
+  }
+
+  form.formulario {
+    display  : flex;
+    flex-flow: row wrap;
+
+    label {
+      flex-basis : 100%;
+      margin     : 5px;
+      margin-left: 50px;
+    }
+
+    input {
+      border-radius: 5px;
+      border       : 0;
+      margin       : 5px;
+    }
+
+    em {
+      margin-left: 40px;
+    }
+
+    input[type="submit"] {
+      margin-left: 50%;
+      padding    : 20px 50px;
+    }
+
+    textarea {
+      margin       : 5px;
+      border-radius: 5px;
+    }
+
+  }
+
+  form.libros {
+    flex-basis     : 100%;
+    display        : flex;
+    flex-flow      : row wrap;
+    justify-content: space-between;
+  }
+
+  section.libros {
+    border    : solid @ravenclaw-5;
+    flex-basis: 30%;
+    margin    : 5px;
+    text-align: center;
+
+    ul {
+      list-style-type: none;
+      text-align     : center;
+      padding        : 0;
+    }
+
+  }
+
+  section#descripcion {
+    display        : flex;
+    flex-flow      : row wrap;
+    justify-content: space-between;
+    align-items    : flex-start;
+
+    ul {
+      display        : flex;
+      flex-flow      : row wrap;
+      justify-content: space-between;
+      flex           : 1;
+      list-style-type: none;
+
+      li {
+        flex-basis: 50%;
+        margin    : 20px 0px;
+
+      }
+    }
+  }
+
+  p {
+    margin    : 10px;
+    text-align: justify;
+  }
+}
+
+aside {
+  position    : sticky;
+  top         : 75px;
+  margin      : 25px;
+  margin-right: 10%;
+  flex        : 1;
+  text-align  : center;
+  border      : solid @ravenclaw-3;
+  background  : silver;
+
+  h3 {
+    color: white;
+  }
+
+  ol {
+    list-style-type: none;
+    text-align     : center;
+    padding        : 0;
+
+    li {
+      padding: 5px;
+    }
+  }
+}
+
+header,
+footer {
+  width: 100%;
+}
+
+header {
+  padding-left: 10%;
+  padding-top : 25px;
+  display     : flex;
+  flex-wrap   : wrap;
+  align-items : center;
+  background  : linear-gradient(to bottom, rgba(209, 209, 209, 1) 0%, rgba(209, 209, 209, 1) 33%, rgba(219, 219, 219, 1) 60%, rgba(254, 254, 254, 1) 100%);
+
+  img {
+    margin-right: 25px;
+  }
+
+  h1 {
+    font-size    : 50px;
+    flex         : 1;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    padding-left: 150px;
+    margin-top  : 0px;
+    flex-basis  : 100%;
+    color       : @ravenclaw-3;
+  }
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: rgb(78, 78, 78);
+}
+
+a:hover {
+  color     : white;
+  background: @ravenclaw-4;
+}
+
+footer {
+  border-top: 1px solid;
+  background: rgba(192, 192, 192, 0.5);
+  margin-top: 25px;
+  display   : flex;
+  flex-wrap : wrap;
+
+  section#tiendas {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-between;
+    flex-basis     : 50%;
+    margin-left    : 30px;
+  }
+
+  #social {
+    margin-top: 10px;
+
+    img {
+      padding: 10px;
+    }
+  }
+
+  #enlaces-foot {
+    margin-top: 10px;
+    width     : 100%;
+
+    ul {
+      display        : flex;
+      flex-wrap      : wrap;
+      list-style-type: none;
+      align-content  : flex-start;
+      padding        : 0;
+      justify-content: space-around;
+    }
+  }
+}
+
+
+
+
+
+nav {
+  flex-basis: 100%;
+  position  : sticky;
+  top       : 0;
+  background: @ravenclaw-4;
+
+  .navigation {
+    padding-left   : 10%;
+    list-style     : none;
+    margin         : 0;
+    display        : flex;
+    justify-content: flex-start;
+
+    a {
+      text-decoration: none;
+      display        : block;
+      padding        : 1em;
+      color          : white;
+    }
+
+
+
+    a:hover {
+      background: #00b7f5;
+    }
+  }
+
+  label,
+  h3 {
+    color: white;
+  }
+
+  form {
+    margin-left     : 5%;
+  }
+}
+
+
+
+@media all and (max-width: 800px) {
+  nav ul {
+    justify-content: space-around;
+  }
+
+  main {
+    flex        : 0 1 100%;
+    margin-left : 10%;
+    margin-right: 10%;
+
+    section p {
+      flex: 0 1 100%;
+    }
+  }
+
+  aside {
+    position    : static;
+    margin-left : 10%;
+    margin-right: 10%;
+  }
+
+  main section.libros {
+    flex-basis: 45%;
+  }
+
+}
+
+@media all and (max-width: 550px) {
+  nav {
+    position: static;
+
+    ul.navigation {
+      flex-flow: column wrap;
+      padding  : 0;
+    }
+
+    ul a {
+      text-align: center;
+      padding   : 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0,
+          0.1);
+    }
+  }
+
+  main section.libros {
+    flex-basis: 100%;
+  }
+}
+
+.error{
+  color: red;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+  {%block head%}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/static/css/normalize.css"> -->
+  <link rel="stylesheet/less" type="text/css" href="/static/css/mainStyles.less" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+  <link rel="shortcut icon" href="/static/img/epublibre.png" />
+  <title>{% block title%}Librería Amir{% endblock%}</title>
+  {% endblock%}
+</head>
+
+<body class="d-flex flex-column h-100">
+  <!-- header -->
+  <header>
+    {% block header%}
+    {% endblock%}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" role="navigation">
+      <a class="navbar-brand" href="/"><img width="36" src="/static/img/epublibre.png" alt="icono librería Amir"
+          id="favicon"> Libreria Amir</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="buscar">Búsqueda</a></li>
+          <li class="nav-item"><a class="nav-link" href="datosEjemplo">Consulta ejemplo</a></li>
+          <li class="nav-item"><a class="nav-link" href="tiendas">Tiendas</a></li>
+          <li class="nav-item"><a class="nav-link" href="pedidos">Pedidos</a></li>
+          {% if user %}
+          <li class="nav-item"><a class="nav-link" href="registrar">Registrar Usuario</a></li>
+          {% endif %}
+        </ul>
+        {% if not user%}
+        {% if error%}
+        <p class="error">{{error}}</p>
+        {% endif%}
+        <form class="navbar-form navbar-right mt-2 mt-md-0" action="/login" method="post">
+          <label><span class="text-light"> Usuario:</span> <input class="form-control mr-sm-2" type="text"
+              placeholder="usuario" name="user"></label>
+          <label><span class="text-light"> Contraseña:</span> <input class="form-control mr-sm-2" type="password"
+              placeholder="contraseña" name="pass"></label>
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Iniciar Sesión</button>
+        </form>
+        {% else%}
+        <span class="text-white mr-3">Bienvenido {{user}} </span>
+        <a href="/logout"><button class="btn btn-outline-primary my-2 my-sm-0">Desconectar</button></a>
+        {% endif%}
+      </div>
+    </nav>
+  </header>
+
+  <div class="flex-shrink-0 d-flex align-items-start justify-content-around flex-wrap">
+    <!-- main -->
+    <main role="main" class="flex-grow-1 mx-2 w-50">
+      {% block main %} {% endblock %}
+    </main>
+
+    <aside class="bg-secondary w-30 mt-4 mr-2">
+      {% block aside %}
+      <section class="mx-4">
+        <h3 class="text-light">Páginas visitadas</h3>
+        <ul>
+          {% for pag in paginas %}
+          {% if pag=='/' %}
+          <li class="mb-1" style="list-style: none;"><a class="btn btn-danger" href="{{pag}}">Inicio</a></li>
+          {% else %}
+          <li class="mb-1" style="list-style: none;"><a class="btn btn-danger" href="{{pag}}">{{pag}}</a></li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="mx-4">
+        <h3>Libros más vendidos</h3>
+        <ol>
+          <li>Juego de Tronos</li>
+          <li>El nombre del viento</li>
+          <li>Harry Potter</li>
+        </ol>
+      </section>
+      <section class="mx-4">
+        <h3>Autores más populares</h3>
+        <ol>
+          <li>Patrick Rothfuss</li>
+          <li>J.K. Rowling</li>
+          <li>George R.R. Martin</li>
+        </ol>
+      </section>
+      {%endblock%}
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto bg-dark">
+
+    <!-- Copyright -->
+    <div class="text-center py-4">© 2019 Copyright:
+      <a class="text-light" href="https://github.com/Neo-Stark"> Neo-Stark</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

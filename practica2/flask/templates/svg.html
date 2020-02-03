@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+
+<body style="height: 100%; background: #444; display: flex; justify-content: center; align-items: center;">
+
+  <div>
+
+    {%if figura == 0%}
+    <svg width="500" height="500">
+      <circle cx="250" cy="250" r="100" stroke="rgba(0,0,0,0.5)" stroke-width="4" fill="#f4f4f4" />
+    </svg>
+    {%elif figura == 1%}
+    <svg width="400" height="100">
+      <rect width="400" height="100" style="fill:rgb(0,0,255);stroke-width:10;stroke:rgb(0,0,0)" />
+    </svg>
+    {%elif figura == 2%}
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"
+      style="filter: drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 10px);">
+      <path fill="#fff"
+        d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"></path>
+    </svg>
+    {%endif%}
+  </div>
+</body>
+
+</html>

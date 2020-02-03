@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {%block head%}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet/less" type="text/css" href="/static/css/style.less" />
+  <link rel="shortcut icon" href="/static/img/epublibre.png" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+  <title>{%block title%}Librería Amir{%endblock%}</title>
+  {%endblock%}
+</head>
+
+<body>
+  <header>
+    {%block header%}
+    <img src="/static/img/epublibre.png" alt="icono librería Amir" id="favicon" width="100">
+    <h1>Librería Amir</h1>
+    <h2>Más libros, más libres</h2>
+    {%endblock%}
+  </header>
+  <nav>
+    <ul class="navigation">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="catalogo">Catálogo</a></li>
+      <li><a href="buscar">Búsqueda</a></li>
+      <li><a href="tiendas">Tiendas</a></li>
+      <li><a href="pedidos">Pedidos</a></li>
+      <li><a href="registrar">Registrar Usuario</a></li>
+    </ul>
+    {%if not user%}
+    {%if error%}
+    <p class="error">{{error}}</p>
+    {%endif%}
+    <form action="/login" method="post" class>
+      <label>Usuario: <input type="text" placeholder="usuario" name="user"></label>
+      <label>Contraseña <input type="password" placeholder="contraseña" name="pass"></label>
+      <input type="submit" value="Inciar Sesión">
+    </form>
+    {%else%}
+    <h3>Bienvenido {{user}}</h3>
+    <a href="/logout"><button>Desconectar</button></a>
+    {%endif%}
+
+  </nav>
+
+  <main>
+    {% block main %} {%endblock%}
+  </main>
+
+  <aside>
+    {% block aside %}
+    <section>
+      <ul>
+        {% for pag in paginas %}
+        <li><a href="{{pag}}">{{pag}}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <h3>Libros más vendidos</h3>
+      <ol>
+        <li>Juego de Tronos</li>
+        <li>El nombre del viento</li>
+        <li>Harry Potter</li>
+      </ol>
+    </section>
+    <section>
+      <h3>Autores más populares</h3>
+      <ol>
+        <li>Patrick Rothfuss</li>
+        <li>J.K. Rowling</li>
+        <li>George R.R. Martin</li>
+      </ol>
+    </section>
+    {%endblock%}
+  </aside>
+
+  <footer>
+    {%block footer%}
+    <section id="tiendas">
+      <div>
+        <h3>Granada</h3>
+        <p>Reyes Católicos (555 112233)</p>
+        <p>Recogidas (555 221133)</p>
+      </div>
+      <div>
+        <h3>Malaga</h3>
+        <p>Teatinos (555 113322)</p>
+        <p>Calle Larios (555 212313)</p>
+      </div>
+    </section>
+    <section id="social">
+      <a href="https://twitter.com"><img src="/static/img/twitter.png" width="45" alt="icono twitter"></a>
+      <a href="https://facebook.com"><img src="/static/img/facebook.png" width="45" alt="icono facebook"></a>
+      <a href="https://pinterest.com"><img src="/static/img/pinterest.png" width="45" alt="icono pinterest"></a>
+      <a href=""><img src="/static/img/rss.png" width="45" alt="icono rss"></a>
+      <a href="mailto:LibreriaAmir@correo.es">
+        <img src="/static/img/mail.png" width="45" alt="icono mail" id="correo-ico">
+        <span>LibreriaAmir@correo.es</span>
+      </a>
+    </section>
+    <section id="enlaces-foot">
+      <ul>
+        <li><a href="#">La empresa</a></li>
+        <li><a href="#">Políticas de envío</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Mapa del sitio</a></li>
+      </ul>
+    </section>
+    {%endblock%}
+  </footer>
+</body>
+
+</html>

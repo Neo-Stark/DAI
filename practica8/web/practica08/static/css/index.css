@@ -1,0 +1,17 @@
+main ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+main ul li {
+  display: flex;
+  align-items: flex-start;
+  list-style-type: none;
+  margin-left: 15px;
+}
+main ul li p {
+  font-size: large;
+}
+h2 {
+  margin-left: 10px;
+  margin-top: 10px;
+}

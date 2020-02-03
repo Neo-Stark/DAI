@@ -1,0 +1,74 @@
+{% extends "base.html"%} 
+{% block content %}
+<div>
+  <button type="submit" class="btn" id="navbar"><i class="far fa-eye-slash"></i>Ocultar Navbar</button>
+</div>
+<h2> Músicos Paginador SIN AJAX<a href="{% url 'form_musico' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+<ul>
+  {% for o in musicos %}
+    <li>
+      <p>{{ o }}</p>
+      <a href="{% url 'eliminar' model='Musico' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+      <a href="{% url 'modificar' model='Musico' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+    </li>
+  {% endfor %}
+</ul>
+
+  <div class="pagination ml-5">
+    <span class="step-links">
+        {% if musicos.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ musicos.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ musicos.number }} of {{ musicos.paginator.num_pages }}.
+        </span>
+
+        {% if musicos.has_next %}
+            <a href="?page={{ musicos.next_page_number }}">next</a>
+            <a href="?page={{ musicos.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </span>
+    </div>
+  <h2> Grupos Paginador CON AJAX<a href="{% url 'form_grupo' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+  <div class="Grupos">
+  <ul>
+    {% for o in grupos %}
+      <li>
+        <p>{{ o }}</p>
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <a href="{% url 'eliminar' model='Grupo' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+        <a href="{% url 'modificar' model='Grupo' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+        {% comment %} {% endif %} {% endcomment %}
+      </li>
+    {% endfor %}
+  </ul>
+
+    <span class="paginationGrupos ml-5">
+        {% if grupos.has_previous %}
+            <a href="?pageGrupos=1">&laquo; first</a>
+            <a href="?pageGrupos={{ grupos.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ grupos.number }} of {{ grupos.paginator.num_pages }}.
+        </span>
+
+        {% if grupos.has_next %}
+            <a href="?pageGrupos={{ grupos.next_page_number }}">next</a>
+            <a href="?pageGrupos={{ grupos.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+<h2> Álbums <a href="{% url 'form_album' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+<ul>
+  {% for o in album %}
+    <li>
+      <p>{{ o }}</p>
+      <a href="{% url 'eliminar' model='Album' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+      <a href="{% url 'modificar' model='Album' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

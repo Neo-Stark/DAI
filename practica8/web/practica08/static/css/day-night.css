@@ -1,0 +1,13 @@
+body.night {
+  background: gray;
+}
+
+p.night {
+  color: whitesmoke;
+}
+h2.night {
+  color: aliceblue;
+}
+nav.night {
+  color: azure;
+}

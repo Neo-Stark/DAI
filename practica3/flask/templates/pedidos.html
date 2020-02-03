@@ -1,0 +1,44 @@
+{%extends 'base.html' %}
+  {%block main %}
+    <section id="descripcion">
+      <img src="/static/img/elNombreDelViento.jpg" alt="El nombre del viento" width="100">
+      <ul>
+        <li><em>Título</em>
+          El nombre del viento</li>
+        <li><em>Autor</em>
+          Patrick Rothfuss</li>
+        <li><em>Editorial</em>
+          Salamandra</li>
+        <li><em>ISBN</em>
+          8499082475</li>
+        <li><em>Año</em>
+          2012</li>
+      </ul>
+      <p>En una posada en tierra de nadie, un hombre se dispone a relatar, por primera vez, la auténtica historia de
+        su vida. Una historia que únicamente él conoce y que ha quedado diluida tras los rumores, las conjeturas y los
+        cuentos de taberna que le han convertido en un personaje legendario a quien todos daban ya por muerto:
+        Kvothe... músico, mendigo, ladrón, estudiante, mago, héroe y asesino. Ahora va a revelar la verdad sobre sí
+        mismo. Y para ello debe empezar por el principio: su infancia en una troupe de artistas itinerantes, los años
+        malviviendo como un ladronzuelo en las calles de una gran ciudad y su llegada a una universidad donde esperaba
+        encontrar todas las respuestas que había estado buscando.</p>
+      <p> Precio: <em>19,90€</em></p>
+    </section>
+    <section>
+      <form action="procesar.php" method="POST" class="formulario">
+        <input type="hidden" name="ISBN" value="8499082475">
+        <label>Nombre y apellidos <input type="text" required></label>
+        <label for="dir_envio">Dirección de envio<textarea name="dirEnvio" id="dir_envio" cols="30" rows="5"
+            required></textarea></label>
+        <label for="email">eMail<input type="email" name="email" id="email" required></label>
+        <label for="nTarjeta">Número de tarjeta<input type="number" name="nTarjeta" id="nTarjeta" required></label>
+        <label for="mes">fecha caducidad<input type="month" name="mes" id="mes"></label><label for="cvc">CVC<input
+            type="number" name="cvc" id="cvc"></label>
+        <p>Marque si procede</p>
+        <label><input type="checkbox" name="condiciones">He leído y acepto las condiciones de
+          compra</label>
+        <label><input type="checkbox" name="novedades">Deseo recibir información sobre novedades</label>
+        <label><input type="checkbox" name="regalo">Dese el envío envuelto para regalo</label>
+        <input type="submit" value="Hacer pedido">
+      </form>
+    </section>
+{%endblock%}

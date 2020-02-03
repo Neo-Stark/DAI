@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light" role="navigation">
+      <a class="navbar-brand" href="/p6"><img width="36" src="/static/img/epublibre.png" alt="icono librería Amir"
+          id="favicon">Amir Music</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/p6">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/p6/musicos/form">Nuevo músico</a></li>
+          <li class="nav-item"><a class="nav-link" href="/p6/grupos/form">Nuevo grupo</a></li>
+          <li class="nav-item"><a class="nav-link" href="/p6/album/form">Nuevo Album</a></li>
+          <li class="nav-item"><a class="nav-link" href='{% url 'mapa' %}'>Mapa</a></li>
+          <li class="nav-item"><a class="nav-link" href='{% url 'graficos' %}'>Gráficos</a></li>
+          <li><button class="btn" id="day-night"><i class="fas fa-sun" style="font-size:25px;"></i></button></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a href="/accounts/profile/">
+                    <img src="{{request.user.user_profile.image.url_60x60}}" style="height:40px;"
+                        alt="{{request.user.fullname}}" class="avatar rounded-circle">
+                    <span class="header-username">{{request.user.get_full_name}}</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="/accounts/logout/">Logout</a>
+            </li>
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link " href="/accounts/login/">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/accounts/signup/">Signup</a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>

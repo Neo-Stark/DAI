@@ -1,0 +1,35 @@
+{% extends "base.html"%} 
+{% block content %}
+<h2> Músicos <a href="{% url 'form_musico' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+<ul>
+  {% for o in musicos %}
+    <li>
+      <p>{{ o }}</p>
+      <a href="{% url 'eliminar' model='Musico' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+      <a href="{% url 'modificar' model='Musico' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+    </li>
+  {% endfor %}
+</ul>
+<h2> Grupos <a href="{% url 'form_grupo' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+<ul>
+  {% for o in grupos %}
+    <li>
+      <p>{{ o }}</p>
+      {% comment %} {% if user.is_authenticated %} {% endcomment %}
+      <a href="{% url 'eliminar' model='Grupo' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+      <a href="{% url 'modificar' model='Grupo' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+      {% comment %} {% endif %} {% endcomment %}
+    </li>
+  {% endfor %}
+</ul>
+<h2> Álbums <a href="{% url 'form_album' %}" class="btn btn-success btn-sm ml-1">Nuevo</a> </h2>
+<ul>
+  {% for o in album %}
+    <li>
+      <p>{{ o }}</p>
+      <a href="{% url 'eliminar' model='Album' oid=o.id %}" class="btn btn-danger btn-sm ml-1" role="button">Eliminar</a>
+      <a href="{% url 'modificar' model='Album' oid=o.id %}" class="btn btn-warning btn-sm ml-1" role="button">Modificar</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+{%block main %}
+{%if errorRegistro%}
+    <h3 class="error">{{errorRegistro}}</h3>
+{%endif%}
+<form action="/registrando" method="POST" class="formulario">
+    <label for="usuario"> Nombre <input type="text" name="usuario" id="usuario" value="{{usuario}}"></label>
+    <label for="pass"> Constraseña <input type="password" name="pass" id="pass"></label>
+    <label for="pass2"> Repita Constraseña <input type="password" name="pass2" id="pass2"></label>
+    <label for="rol" class="genero">Rol
+        <select name="rol" class="genero" id="rol">
+            <option>Administrador</option>
+            <option>Usuario</option>
+        </select>
+    </label>
+    <input type="submit" value="Registrar">
+
+</form>
+{%endblock%}

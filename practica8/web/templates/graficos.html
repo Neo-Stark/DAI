@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/graficos.css' %}">
+    <div id="grafico"></div>
+    <ul>
+      <li><button id='grupos' class='btn btn-primary'>Músicos en grupos</button></li>
+      <li><button id='year' class='btn btn-primary'>Músicos por año</button></li>
+    </ul>
+    <script src='{% static 'js/graficos.js' %}'></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+{% endblock content %}
